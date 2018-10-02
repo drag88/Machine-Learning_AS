@@ -1,3 +1,8 @@
+#loading packages
+library(tidyverse)
+library(caret)
+library(GGally)
+
 ## Here's the data
 mouse.data <- data.frame(
     size = c(1.4, 2.6, 1.0, 3.7, 5.5, 3.2, 3.0, 4.9, 6.3),
@@ -35,6 +40,9 @@ f.simple <- ((ss.mean - ss.simple) / (2 - 1)) /
     (ss.simple / (nrow(mouse.data) - 2))
 
 f.simple # this is the F-value
+
+
+# This part is good to have - not mandatory -------------------------------
 
 ## Now let's draw a figure that shows how to calculate the p-value from the
 ## F-value
@@ -74,8 +82,10 @@ summary(simple.regression)
 
 ## STEP 1: Draw a graph of the data to make sure the relationship make sense
 ## This graph is more complex because it shows the relationships between all
-## of the columns in "mouse.data".
+## of the columns in "mouse.data". This cab done either by just plotting the data using base function or using ggpairs
+
 plot(mouse.data)
+ggpairs(mouse.data)
 
 ## STEP 2: Do the regression
 multiple.regression <- lm(size ~ weight + tail, data=mouse.data)
