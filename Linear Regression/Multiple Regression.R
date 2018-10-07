@@ -2,7 +2,7 @@
 library(tidyverse)
 library(caret)
 library(GGally)
-
+library(ISLR)
 ## Here's the data
 mouse.data <- data.frame(
     size = c(1.4, 2.6, 1.0, 3.7, 5.5, 3.2, 3.0, 4.9, 6.3),
